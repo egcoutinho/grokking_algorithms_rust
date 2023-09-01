@@ -10,9 +10,9 @@
 
 <div align="center">
 
-  ![Build](https://github.com/EstebanBorai/grokking-algorithms-rust/workflows/build/badge.svg)
-  ![Formatting](https://github.com/EstebanBorai/grokking-algorithms-rust/workflows/fmt/badge.svg)
-  ![Tests](https://github.com/EstebanBorai/grokking-algorithms-rust/workflows/tests/badge.svg)
+  ![Build](https://github.com/egcoutinho/grokking_algorithms_rust/workflows/build/badge.svg)
+  ![Formatting](https://github.com/egcoutinho/grokking_algorithms_rust/workflows/fmt/badge.svg)
+  ![Tests](https://github.com/egcoutinho/grokking_algorithms_rust/workflows/tests/badge.svg)
 
 </div>
 
