@@ -34,7 +34,8 @@ where
     {
         let coll = coll.to_owned();
 
-        for item in coll.into_iter() {
+        for item in coll.into_iter()
+        {
             self.enqueue(item);
         }
     }
