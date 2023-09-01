@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         rust:
-          - stable
+          - nightly
 
     steps:
       - name: Checkout
