@@ -7,52 +7,62 @@
 /// limits its methods (by exposing Stack only methods) to achieve
 /// the LIFO behavior.
 #[allow(dead_code)]
-struct Stack<T> {
+struct Stack<T>
+{
     coll: Vec<T>,
 }
 
-impl<T> Stack<T> {
+impl<T> Stack<T>
+{
     /// Creates a new instance of an empty Stack
-    pub fn new() -> Self {
+    pub fn new() -> Self
+    {
         Stack { coll: Vec::new() }
     }
 
     /// Pushes an element on top of the others
-    pub fn push(&mut self, element: T) {
+    pub fn push(&mut self, element: T)
+    {
         self.coll.push(element);
     }
 
     /// Pops the topmost element from the Stack and returns it.
     /// If no element is available (The stack is empty) returns
     /// `None` instead
-    pub fn pop(&mut self) -> Option<T> {
+    pub fn pop(&mut self) -> Option<T>
+    {
         self.coll.pop()
     }
 
     /// Retrieves the count of element conforming the stack
-    pub fn length(&self) -> usize {
+    pub fn length(&self) -> usize
+    {
         self.coll.len()
     }
 
     /// Retrieves a reference to the last element inserted.
     /// This is similar to calling `pop` but doesn't moves
     /// the element from the Stack
-    pub fn peek(&self) -> Option<&T> {
+    pub fn peek(&self) -> Option<&T>
+    {
         self.coll.get(self.length() - 1)
     }
 
     /// Returns `true` if the Stack is empty, otherwise returns `false`
-    pub fn is_empty(&self) -> bool {
+    pub fn is_empty(&self) -> bool
+    {
         self.coll.is_empty()
     }
 }
 
 #[cfg(test)]
-mod tests {
+mod tests
+{
     use super::*;
 
     #[test]
-    fn creates_a_stack() {
+    fn creates_a_stack()
+    {
         let empty_vec: Vec<i32> = Vec::new();
         let stack: Stack<i32> = Stack::new();
 
@@ -60,7 +70,8 @@ mod tests {
     }
 
     #[test]
-    fn pushes_an_element_into_the_stack() {
+    fn pushes_an_element_into_the_stack()
+    {
         let mut vec: Vec<i32> = Vec::new();
         vec.push(10);
 
@@ -73,7 +84,8 @@ mod tests {
     }
 
     #[test]
-    fn pops_elements_from_the_stack() {
+    fn pops_elements_from_the_stack()
+    {
         let mut stack: Stack<i32> = Stack::new();
 
         stack.push(10);
@@ -92,7 +104,8 @@ mod tests {
     }
 
     #[test]
-    fn returns_stack_length() {
+    fn returns_stack_length()
+    {
         let mut stack: Stack<i32> = Stack::new();
 
         stack.push(1);
@@ -105,7 +118,8 @@ mod tests {
     }
 
     #[test]
-    fn peeks_element_from_stack() {
+    fn peeks_element_from_stack()
+    {
         let mut stack: Stack<i32> = Stack::new();
 
         stack.push(1);
@@ -118,14 +132,16 @@ mod tests {
     }
 
     #[test]
-    fn checks_if_stack_is_empty() {
+    fn checks_if_stack_is_empty()
+    {
         let stack: Stack<i32> = Stack::new();
 
         assert!(stack.is_empty());
     }
 
     #[test]
-    fn checks_if_stack_is_not_empty() {
+    fn checks_if_stack_is_not_empty()
+    {
         let mut stack: Stack<i32> = Stack::new();
 
         stack.push(10);

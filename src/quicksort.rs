@@ -11,7 +11,7 @@ where
     // helps avoid performing algorithms _in situ_
     let coll_clone: Vec<T> = coll.clone();
 
-    if coll.len() < 2 
+    if coll.len() < 2
     {
         // If theres no elements or theres only
         // one element we retrieve the `Vec<T>`
@@ -50,12 +50,12 @@ where
 }
 
 #[cfg(test)]
-mod tests 
+mod tests
 {
     use super::*;
 
     #[test]
-    fn sorts_a_collection() 
+    fn sorts_a_collection()
     {
         let items = vec![8, 2, 4, 6, 5, 7, 10];
         let result = quicksort(&items);

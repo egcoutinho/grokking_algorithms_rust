@@ -26,7 +26,7 @@ struct Visit<N>
 
 impl<N> Ord for Visit<N>
 {
-    fn cmp(&self, other: &Self) -> Ordering 
+    fn cmp(&self, other: &Self) -> Ordering
     {
         other.distance.cmp(&self.distance)
     }

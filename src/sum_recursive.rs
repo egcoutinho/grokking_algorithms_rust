@@ -1,7 +1,7 @@
 #[allow(dead_code)]
-fn sum_recursive(coll: &Vec<u32>) -> u32 
+fn sum_recursive(coll: &Vec<u32>) -> u32
 {
-    if coll.len() == 0 
+    if coll.len() == 0
     {
         return 0;
     }
@@ -13,12 +13,12 @@ fn sum_recursive(coll: &Vec<u32>) -> u32
 }
 
 #[cfg(test)]
-mod tests 
+mod tests
 {
     use super::*;
 
     #[test]
-    fn sums_all_elements_in_vec() 
+    fn sums_all_elements_in_vec()
     {
         let sum_digits = vec![2, 4, 6];
 
@@ -26,7 +26,7 @@ mod tests
     }
 
     #[test]
-    fn returns_zero_if_empty_vec_is_provided() 
+    fn returns_zero_if_empty_vec_is_provided()
     {
         let sum_digits = vec![];
 

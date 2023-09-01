@@ -19,7 +19,7 @@ where
 
         if searched.iter().find(|e| e == &&current).is_none()
         {
-            if pred(current.clone()) 
+            if pred(current.clone())
             {
                 return Some(current);
             }

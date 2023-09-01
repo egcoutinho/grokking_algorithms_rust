@@ -19,16 +19,19 @@ where
     T: Clone,
 {
     /// Creates a new instance of an empty Queue
-    pub fn new() -> Self {
+    pub fn new() -> Self
+    {
         Queue { coll: Vec::new() }
     }
 
     /// Appends an element to the Queue
-    pub fn enqueue(&mut self, item: T) {
+    pub fn enqueue(&mut self, item: T)
+    {
         self.coll.push(item);
     }
 
-    pub fn enqueue_many(&mut self, coll: &Vec<T>) {
+    pub fn enqueue_many(&mut self, coll: &Vec<T>)
+    {
         let coll = coll.to_owned();
 
         for item in coll.into_iter() {
@@ -37,35 +40,41 @@ where
     }
 
     /// Takes the next element from the Queue
-    pub fn dequeue(&mut self) -> T {
+    pub fn dequeue(&mut self) -> T
+    {
         self.coll.remove(0)
     }
 
     /// Retrieves the number of elements conforming the Queue
-    pub fn length(&self) -> usize {
+    pub fn length(&self) -> usize
+    {
         self.coll.len()
     }
 
     /// Peeks the next element from the Queue.
     /// This is similar to calling `dequeue` but
     /// without moving the value from the Queue
-    pub fn peek(&self) -> Option<&T> {
+    pub fn peek(&self) -> Option<&T>
+    {
         self.coll.get(0)
     }
 
     /// Returns `true` if the Queue is empty otherwise
     /// returns `false`
-    pub fn is_empty(&self) -> bool {
+    pub fn is_empty(&self) -> bool
+    {
         self.coll.is_empty()
     }
 }
 
 #[cfg(test)]
-mod tests {
+mod tests
+{
     use super::*;
 
     #[test]
-    fn creates_a_queue() {
+    fn creates_a_queue()
+    {
         let empty_vec: Vec<i32> = Vec::new();
         let queue: Queue<i32> = Queue::new();
 
@@ -73,7 +82,8 @@ mod tests {
     }
 
     #[test]
-    fn enqueue_an_element() {
+    fn enqueue_an_element()
+    {
         let mut queue: Queue<i32> = Queue::new();
 
         queue.enqueue(9);
@@ -82,7 +92,8 @@ mod tests {
     }
 
     #[test]
-    fn dequeues_an_element() {
+    fn dequeues_an_element()
+    {
         let mut queue: Queue<i32> = Queue::new();
 
         queue.enqueue(9);
@@ -97,7 +108,8 @@ mod tests {
     }
 
     #[test]
-    fn retrieves_queue_element_count() {
+    fn retrieves_queue_element_count()
+    {
         let mut queue: Queue<i32> = Queue::new();
 
         queue.enqueue(9);
@@ -109,7 +121,8 @@ mod tests {
     }
 
     #[test]
-    fn peeks_the_next_element_from_the_queue() {
+    fn peeks_the_next_element_from_the_queue()
+    {
         let mut queue: Queue<i32> = Queue::new();
 
         queue.enqueue(9);
@@ -121,14 +134,16 @@ mod tests {
     }
 
     #[test]
-    fn checks_if_queue_is_empty() {
+    fn checks_if_queue_is_empty()
+    {
         let queue: Queue<i32> = Queue::new();
 
         assert!(queue.is_empty());
     }
 
     #[test]
-    fn checks_if_queue_is_not_empty() {
+    fn checks_if_queue_is_not_empty()
+    {
         let mut queue: Queue<i32> = Queue::new();
 
         queue.enqueue(9);
