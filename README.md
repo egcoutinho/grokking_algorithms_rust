@@ -11,7 +11,7 @@
 <div align="center">
 
   ![Build](https://github.com/egcoutinho/grokking_algorithms_rust/workflows/build/badge.svg)
-  <!-- ![Formatting](https://github.com/egcoutinho/grokking_algorithms_rust/workflows/fmt/badge.svg) -->
+  ![Formatting](https://github.com/egcoutinho/grokking_algorithms_rust/workflows/fmt/badge.svg)
   ![Tests](https://github.com/egcoutinho/grokking_algorithms_rust/workflows/tests/badge.svg)
 
 </div>
