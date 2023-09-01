@@ -2,7 +2,7 @@
   <div align="center" style="display: block; text-align: center;">
     <img src="./assets/artwork.png" height="120" />
   </div>
-  <h1 align="center">grokking-algorithms-rust</h1>
+  <h1 align="center">Grokking Algorithms in Rust</h1>
   <h4 align="center">
     Grokking Algorithms implementations in Rust
   </h4>
@@ -11,7 +11,7 @@
 <div align="center">
 
   ![Build](https://github.com/egcoutinho/grokking_algorithms_rust/workflows/build/badge.svg)
-  ![Formatting](https://github.com/egcoutinho/grokking_algorithms_rust/workflows/fmt/badge.svg)
+  <!-- ![Formatting](https://github.com/egcoutinho/grokking_algorithms_rust/workflows/fmt/badge.svg) -->
   ![Tests](https://github.com/egcoutinho/grokking_algorithms_rust/workflows/tests/badge.svg)
 
 </div>
