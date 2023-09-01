@@ -5,7 +5,7 @@ fn binary_search<T>(items: Vec<T>, value: T) -> Option<usize>
 where
     T: std::cmp::Ord,
 {
-    if items.is_empty() 
+    if items.is_empty()
     {
         // Avoid running if no items are provided
         return None;
@@ -13,12 +13,12 @@ where
 
     let (mut start, mut end) = (0, items.len() - 1);
 
-    loop 
+    loop
     {
         let idx = (start + end) / 2;
         let attempt = items.get(idx).unwrap();
 
-        if start > end 
+        if start > end
         {
             break;
         }
