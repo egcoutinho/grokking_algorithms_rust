@@ -4,26 +4,27 @@ use std::collections::{BinaryHeap, HashMap, HashSet};
 type WeightedGraph<'a> = HashMap<Node<'a>, Vec<(Node<'a>, usize)>>;
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
-struct Node<'a> 
+struct Node<'a>
 {
     name: &'a str,
 }
 
-impl<'a> Node<'a> 
+impl<'a> Node<'a>
 {
-    fn new(name: &'a str) -> Node<'a> {
+    fn new(name: &'a str) -> Node<'a>
+    {
         Node { name }
     }
 }
 
 #[derive(Debug)]
-struct Visit<N> 
+struct Visit<N>
 {
     node: N,
     distance: usize,
 }
 
-impl<N> Ord for Visit<N> 
+impl<N> Ord for Visit<N>
 {
     fn cmp(&self, other: &Self) -> Ordering 
     {
@@ -31,17 +32,17 @@ impl<N> Ord for Visit<N>
     }
 }
 
-impl<N> PartialOrd for Visit<N> 
+impl<N> PartialOrd for Visit<N>
 {
-    fn partial_cmp(&self, other: &Self) -> Option<Ordering> 
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering>
     {
         Some(self.cmp(other))
     }
 }
 
-impl<N> PartialEq for Visit<N> 
+impl<N> PartialEq for Visit<N>
 {
-    fn eq(&self, other: &Self) -> bool 
+    fn eq(&self, other: &Self) -> bool
     {
         self.distance.eq(&other.distance)
     }
@@ -50,10 +51,8 @@ impl<N> PartialEq for Visit<N>
 impl<N> Eq for Visit<N> {}
 
 #[allow(dead_code)]
-fn dijkstra<'a>(
-    start: Node<'a>,
-    graph: &WeightedGraph<'a>,
-) -> HashMap<Node<'a>, usize> {
+fn dijkstra<'a>(start: Node<'a>, graph: &WeightedGraph<'a>) -> HashMap<Node<'a>, usize>
+{
     let mut distances: HashMap<Node, usize> = HashMap::new();
     let mut visited: HashSet<Node> = HashSet::new();
     let mut to_visit: BinaryHeap<Visit<Node>> = BinaryHeap::new();
@@ -64,19 +63,24 @@ fn dijkstra<'a>(
         distance: 0,
     });
 
-    while let Some(Visit { node, distance }) = to_visit.pop() {
-        if !visited.insert(node) {
+    while let Some(Visit { node, distance }) = to_visit.pop()
+    {
+        if !visited.insert(node)
+        {
             continue;
         }
 
-        if let Some(neighbors) = graph.get(&node) {
-            for (neighbor, cost) in neighbors {
+        if let Some(neighbors) = graph.get(&node)
+        {
+            for (neighbor, cost) in neighbors
+            {
                 let new_distance = distance + cost;
                 let is_shorter = distances
                     .get(&neighbor)
                     .map_or(true, |&current| new_distance < current);
 
-                if is_shorter {
+                if is_shorter
+                {
                     distances.insert(*neighbor, new_distance);
                     to_visit.push(Visit {
                         node: *neighbor,
@@ -91,11 +95,12 @@ fn dijkstra<'a>(
 }
 
 #[cfg(test)]
-mod tests {
+mod tests
+{
     use super::*;
 
     #[test]
-    fn dijkstra_finds_shortest_distance() 
+    fn dijkstra_finds_shortest_distance()
     {
         let start_node = Node::new("start");
         let a_node = Node::new("a");

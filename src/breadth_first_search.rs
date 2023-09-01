@@ -13,11 +13,11 @@ where
     let mut searched: Vec<String> = Vec::new();
     queue.enqueue_many(&graph[&name]);
 
-    while !queue.is_empty() 
+    while !queue.is_empty()
     {
         let current = queue.dequeue();
 
-        if searched.iter().find(|e| e == &&current).is_none() 
+        if searched.iter().find(|e| e == &&current).is_none()
         {
             if pred(current.clone()) 
             {
@@ -33,11 +33,11 @@ where
 }
 
 #[cfg(test)]
-mod tests 
+mod tests
 {
     use super::*;
 
-    fn make_graph() -> Graph 
+    fn make_graph() -> Graph
     {
         let mut graph: Graph = HashMap::new();
 
@@ -63,7 +63,7 @@ mod tests
     }
 
     #[test]
-    fn finds_peggy_in_the_graph() 
+    fn finds_peggy_in_the_graph()
     {
         let graph = make_graph();
         let predicate = |n: String| n == String::from("peggy");
@@ -74,7 +74,7 @@ mod tests
     }
 
     #[test]
-    fn doesnt_finds_pickle_in_the_graph() 
+    fn doesnt_finds_pickle_in_the_graph()
     {
         let graph = make_graph();
         let predicate = |n: String| n == String::from("pickle");
