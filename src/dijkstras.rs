@@ -4,36 +4,45 @@ use std::collections::{BinaryHeap, HashMap, HashSet};
 type WeightedGraph<'a> = HashMap<Node<'a>, Vec<(Node<'a>, usize)>>;
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
-struct Node<'a> {
+struct Node<'a> 
+{
     name: &'a str,
 }
 
-impl<'a> Node<'a> {
+impl<'a> Node<'a> 
+{
     fn new(name: &'a str) -> Node<'a> {
         Node { name }
     }
 }
 
 #[derive(Debug)]
-struct Visit<N> {
+struct Visit<N> 
+{
     node: N,
     distance: usize,
 }
 
-impl<N> Ord for Visit<N> {
-    fn cmp(&self, other: &Self) -> Ordering {
+impl<N> Ord for Visit<N> 
+{
+    fn cmp(&self, other: &Self) -> Ordering 
+    {
         other.distance.cmp(&self.distance)
     }
 }
 
-impl<N> PartialOrd for Visit<N> {
-    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+impl<N> PartialOrd for Visit<N> 
+{
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> 
+    {
         Some(self.cmp(other))
     }
 }
 
-impl<N> PartialEq for Visit<N> {
-    fn eq(&self, other: &Self) -> bool {
+impl<N> PartialEq for Visit<N> 
+{
+    fn eq(&self, other: &Self) -> bool 
+    {
         self.distance.eq(&other.distance)
     }
 }
@@ -86,7 +95,8 @@ mod tests {
     use super::*;
 
     #[test]
-    fn dijkstra_finds_shortest_distance() {
+    fn dijkstra_finds_shortest_distance() 
+    {
         let start_node = Node::new("start");
         let a_node = Node::new("a");
         let b_node = Node::new("b");
